@@ -1,16 +1,19 @@
 const fs = require('fs');
 const path = require('path');
+const resolve = path.resolve;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack=require('webpack');
+const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const extractCSS = new ExtractTextPlugin('[name].css');
+// const extractBaseCSS = new ExtractTextPlugin('base.css');
 const util = require('files-tree');
 const entry = {};
-const plugins = [new webpack.HotModuleReplacementPlugin()];
-checkFiles(util.tree(`./apps`));
+const plugins = [extractCSS];
 initEntry(entry);
 initPlugins(plugins);
-
 module.exports = {
-    entry:{'index':'./apps/index.js'},
+    devtool: 'source-map',
+    entry: entry,
     plugins,
     //输出的文件名 合并以后的js会命名为bundle.js
     output: {
@@ -20,52 +23,100 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         inline: true //注意：不写hot: true，否则浏览器无法自动更新；
-    }
-
-};
-
-function initPlugins(plugins) {
-    util.allFile(`./tpl`).forEach((item)=>{
-        plugins.push(new HtmlWebpackPlugin({
-            minify: { //压缩HTML文件
-                removeComments: true, //移除HTML中的注释
-                collapseWhitespace: true //删除空白符与换行符
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: ['babel-loader'],
+                exclude: /node_modules/
             },
-            template: item.path,
-            // chunks: ['vendor', 'tg', path],
-            filename: item.path.replace('./tpl/','')
-        }))
-    })
-
-
-}
-
-function initEntry(entry){
-    util.allFile(`./apps`).forEach((item)=>{
-        let p = item.path.replace(/\.js$/, '');
-        //增加业务入口js
-        entry[p] = item.path;
-    })
-}
-
-function checkFiles(jsList) {
-    jsList.forEach(function (item) {
-        if(item.directory){
-            //查看tpl里是否有此文件夹，没有创建
-            let p = item.path.replace('apps','tpl');
-            if(!fs.existsSync(p)){
-                fs.mkdirSync(p);
+            {
+                test: /\.json/,
+                loader: 'json-loader'
+            },
+            {
+                test: /\.scss$/,
+                use: extractCSS.extract({
+                    fallback: "style-loader",
+                    use: [
+                        {
+                            loader: 'css-loader'
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                sourceMap: true,
+                                config: {
+                                    path: 'postcss.config.js'
+                                }
+                            }
+                        },
+                        {
+                            loader: 'sass-loader', options: {sourceMap: true}
+                        }
+                    ]
+                })
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {loader: 'style-loader'},
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true,
+                            config: {
+                                path: 'postcss.config.js'
+                            }
+                        }
+                    },
+                    {
+                        loader: 'sass-loader', options: {sourceMap: true}
+                    }
+                ]
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                use: ['file-loader?name=static/images/[name].[ext]']
             }
-            checkFiles(item.list);
-        }else if(item.file){
-            //查看tpl里是否有此文件，没有创建
-            let p = item.path.replace(/(.*)apps(.*)js/,'$1tpl$2html');
-            if(!fs.existsSync(p)){
-                let readStream = fs.createReadStream(path.join(__dirname, './base.tpl.html'));
-                let writeStream = fs.createWriteStream(path.join(__dirname, p));
-                readStream.pipe(writeStream);
-            }
-
+        ],
+    },
+    resolve: {
+        // root: __dirname, //绝对路径
+        extensions: [ '.js', '.json', '.scss'],
+        alias: {
+            'style': resolve(__dirname,'apps/base'),
+            'apps': resolve(__dirname,'apps'),
+            'phone': resolve(__dirname,'apps/phone'),
+            'pc': resolve(__dirname,'apps/pc'),
+        }
+    },
+};
+function initPlugins(plugins) {
+    util.allFile(`./apps`).forEach((item) => {
+        if (item.path.indexOf('.html') >= 0) {
+            plugins.push(new HtmlWebpackPlugin({
+                minify: { //压缩HTML文件
+                    removeComments: true, //移除HTML中的注释
+                    collapseWhitespace: true //删除空白符与换行符
+                },
+                template: item.path,
+                chunks: [item.path.replace(/\.\/apps\/(.*)\.html$/, '$1')],
+                filename: item.path.replace('./apps/', '')
+            }))
+        }
+    })
+}
+function initEntry(entry) {
+    util.allFile(`./apps`).forEach((item) => {
+        if (item.path.indexOf('.js') >= 0) {
+            let p = item.path.replace(/\.\/apps\/(.*)\.js$/, '$1');
+            //增加业务入口js
+            entry[p] = item.path;
         }
     })
 }
