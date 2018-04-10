@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+
+$BROWSER-DEFAULT-FONT-SIZE: 37.5 !default;
+@function px2Rem($px){
+  @return $px / $BROWSER-DEFAULT-FONT-SIZE * 1rem;
+}

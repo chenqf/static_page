@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+@import "../../../style/function";
+
+
+.download-banner{
+  height: 50px;
+  line-height: 50px;
+  position:fixed;
+  width:100%;
+  max-width:640px;
+  top:0;left:0;right:0;bottom:0;
+  margin:0 auto;
+  background: #232323;
+  .download-close{
+    //line-height: 50px;
+    width: px2Rem(16);
+    img{
+      width: 100%;
+    }
+  }
+}
+

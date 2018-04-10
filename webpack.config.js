@@ -89,10 +89,8 @@ module.exports = {
         // root: __dirname, //绝对路径
         extensions: [ '.js', '.json', '.scss'],
         alias: {
-            'style': resolve(__dirname,'apps/base'),
+            'style': resolve(__dirname,'style/index'),
             'apps': resolve(__dirname,'apps'),
-            'phone': resolve(__dirname,'apps/phone'),
-            'pc': resolve(__dirname,'apps/pc'),
         }
     },
 };
