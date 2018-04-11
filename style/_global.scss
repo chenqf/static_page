@@ -7,16 +7,32 @@ html,body{
   height: 100%;
   background-color: #fff;
   font-family: Microsoft YaHei,Arial,Helvetica,sans-serif;
+  font-size: 14px;
+  color:#333;
 }
+
+@media only screen and (min-width: 640px){
+  html{
+    font-size: 64px!important;
+  }
+}
+
 
 html{
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   overflow: hidden;
 }
+*{
+  box-sizing: border-box;
+}
 
 article,aside,footer,header,nav,section,figcaption,figure,main{
   display: block;
+}
+
+a, div, header, span {
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
 }
 
 img{border:none;}
@@ -32,7 +48,7 @@ a{
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
   &:active,&:hover{
-    text-decoration: underline;
+    text-decoration: none;
     outline: none;
   }
 }

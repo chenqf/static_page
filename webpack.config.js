@@ -22,7 +22,13 @@ module.exports = {
     },
     devServer: {
         historyApiFallback: true,
-        inline: true //注意：不写hot: true，否则浏览器无法自动更新；
+        contentBase: __dirname,
+        compress: true,
+        port: 8080,
+        inline: true,
+        host: '0.0.0.0',
+        disableHostCheck: true,
+        public: '10.13.1.93'
     },
     module: {
         rules: [
