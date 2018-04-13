@@ -92,6 +92,7 @@
   opacity: 0.9;
   background-color: $red;
   .header-login {
+    font-size: 0;
     position: absolute;
     right: 0;
     top: 0;
@@ -301,6 +302,7 @@
   text-align: center;
   color: #2f0200;
   font-weight: 700;
+  font-size:14px;
   span {
     &:before {
       content: "";
@@ -506,12 +508,39 @@
 
   }
   .footer-bottom{
-    font-size: 12px;
+    font-size: 10px;
     height: 40px;
     line-height: 40px;
     text-align: center;
     border-top:1px solid $line-grey;
   }
+}
+
+.footer-navigation-container{
+  border-top:1px solid $line-grey;
+  background: #fff;
+  position: fixed;
+  width:100%;
+  height: 50px;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:99;
+  box-shadow:0 0 10px 0 hsla(0,6%,58%,.6);
+  overflow: hidden;
+    li{
+      width: 20%;
+      text-align: center;
+      float:left;
+      height:100%;
+      span{
+        display: inline-block;
+        width:65px;
+        img{
+          width: 100%;
+        }
+      }
+    }
 }
 
 
