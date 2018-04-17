@@ -1,11 +1,81 @@
 @charset "utf-8";
+@import "../../../style/function";
+@import "../../../style/variable";
 
-.bg{
-  background: blue;
+/*头部*/
+.mine-header {
+  //font-family: "PingHei","Lucida Grande","Lucida Sans Unicode","STHeiti","Helvetica","Arial","Verdana","sans-serif";
+  min-height: 45px;
+  background: white;
+  border-bottom: 1px solid $line-grey;
+  line-height: 44px;
+  font-size: 0;
+  .mine-header-back {
+    position: absolute;
+    height: 44px;
+    width: 40px;
+    text-align: center;
+    &:before{
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      height: 20px;
+      width: 20px;
+      background: url("/image/jd/mine/sprites.png") no-repeat -20px 0/200px 200px;
+    }
+  }
+  .mine-header-title {
+    line-height: 44px;
+    width: 100%;
+    text-align: center;
+    span{
+      font-size: 16px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  .mine-header-more {
+    position: absolute;
+    height: 44px;
+    width: 40px;
+    text-align: center;
+    right: 0;
+    top:0;
+    &:before{
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      height: 20px;
+      width: 20px;
+      background: url("/image/jd/mine/ellipsis.png") no-repeat center/20px;
+    }
+  }
 }
-.flex{
-  display: flex;
-}
-.flex1{
-  flex:1;
+
+
+.mine-info{
+  margin-bottom:15px;
+  padding:10px;
+  background-color: white;
+  .mine-info-card{
+    padding: 25px 15px;
+    background-image: linear-gradient(left,#eb3c3c,#ff7459);
+    background-color: #ff7459;//cqf 用作背景渐变的降级处理
+    border-radius: 6px;
+    color: white;
+    font-size: 12px;
+    overflow: hidden;
+    position: relative;
+    .mine-info-card-image{
+      font-size: 0;
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      img{
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
 }
