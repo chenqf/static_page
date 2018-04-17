@@ -1,10 +1,13 @@
 @charset "utf-8";
+
+
 @import "../../../style/function";
 @import "../../../style/variable";
 
+
+
 /*头部*/
 .mine-header {
-  //font-family: "PingHei","Lucida Grande","Lucida Sans Unicode","STHeiti","Helvetica","Arial","Verdana","sans-serif";
   min-height: 45px;
   background: white;
   border-bottom: 1px solid $line-grey;
@@ -59,7 +62,7 @@
   background-color: white;
   .mine-info-card{
     padding: 25px 15px;
-    background-image: linear-gradient(left,#eb3c3c,#ff7459);
+    background-image: linear-gradient(to right,#eb3c3c,#ff7459);
     background-color: #ff7459;//cqf 用作背景渐变的降级处理
     border-radius: 6px;
     color: white;
