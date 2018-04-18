@@ -20,6 +20,47 @@
   float:right;
 }
 
+.display-f{
+  display: flex;
+}
+.display-b{
+  display: block;
+}
+.display-i{
+  display:inline ;
+}
+.display-i-b{
+  display: inline-block;
+}
+.display-n{
+  display: none;
+}
+
+.flex-1{
+  flex:1;
+}
+.flex-2{
+  flex:2;
+}
+.flex-3{
+  flex:3;
+}
+.flex-4{
+  flex:4
+}
+
+.text-a-l{
+  text-align: left;
+}
+.text-a-r{
+  text-align: right;
+}
+.text-a-c{
+  text-align:center;
+}
+.text-a-j{
+  text-align:justify;
+}
 
 
 
