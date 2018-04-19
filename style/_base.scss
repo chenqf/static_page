@@ -1,66 +1,40 @@
 @charset "utf-8";
 
-.position-a{
-  position:absolute;
-}
-.position-r{
-  position:relative;
-}
-.position-s{
-  position:static;
-}
-.position-f{
-  position:fixed;
+@import "variable";
+
+
+
+/* flex item */
+@for $index from 1 through 5 {
+  .flex-#{$index} { flex: $index; }
 }
 
-.float-l{
-  float: left;
-}
-.float-r{
-  float:right;
+
+@each $key, $value-list in $base-map {
+  @each $value in $value-list {
+    $value-index:str_index($value,'-');
+    $key-index:str_index($key,'-');
+    $class-name:null;
+    @if $key-index{
+      $key1:#{str-slice($key,1,$key-index - 1)};
+      $key2:#{str-slice($key,$key-index + 1,$key-index + 1)};
+      $class-name:#{$key1}-#{$key2};
+    }@else{
+      $class-name:#{$key};
+    }
+    @if $value-index{
+      .#{$class-name}-#{str-slice($value,1,1)}-#{str-slice($value,$value-index+1,$value-index + 1)} {
+        #{$key}: $value;
+      }
+    }@else{
+      .#{$class-name}-#{str-slice($value,1,1)} {
+        #{$key}: $value;
+      }
+    }
+
+  }
 }
 
-.display-f{
-  display: flex;
-}
-.display-b{
-  display: block;
-}
-.display-i{
-  display:inline ;
-}
-.display-i-b{
-  display: inline-block;
-}
-.display-n{
-  display: none;
-}
-
-.flex-1{
-  flex:1;
-}
-.flex-2{
-  flex:2;
-}
-.flex-3{
-  flex:3;
-}
-.flex-4{
-  flex:4
-}
-
-.text-a-l{
-  text-align: left;
-}
-.text-a-r{
-  text-align: right;
-}
-.text-a-c{
-  text-align:center;
-}
-.text-a-j{
-  text-align:justify;
-}
 
 
 

@@ -1,9 +1,19 @@
 @charset "utf-8";
 
-$red:#de181b;
+$position-values: static, fixed, absolute, relative;
+$float-values: left, right;
+$text-align-values: left, right, center, justify;
+$display-values: block, inline, none, table, inline-block, inline-table;
 
+$base-map: (
+        position:$position-values,
+        float:$float-values,
+        text-align:$text-align-values,
+        display:$display-values
+);
 
-$grey:#666;
-$bg-grey:#f3f5f7;
-$line-light:#e6e6e6;
-$line-grey:#bfbfbe;
+$red: #de181b;
+$grey: #666;
+$bg-grey: #f3f5f7;
+$line-light: #e6e6e6;
+$line-grey: #bfbfbe;
