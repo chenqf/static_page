@@ -1,15 +1,10 @@
 @charset "utf-8";
 
-$position-values: static, fixed, absolute, relative;
-$float-values: left, right;
-$text-align-values: left, right, center, justify;
-$display-values: block, inline, none, table, inline-block, inline-table;
-
 $base-map: (
-        position:$position-values,
-        float:$float-values,
-        text-align:$text-align-values,
-        display:$display-values
+        position:(static, fixed, absolute, relative),
+        float:(left, right),
+        text-align:(left, right, center, justify),
+        display:(block, inline, none, table, inline-block, inline-table)
 );
 
 $red: #de181b;
@@ -17,3 +12,11 @@ $grey: #666;
 $bg-grey: #f3f5f7;
 $line-light: #e6e6e6;
 $line-grey: #bfbfbe;
+
+$z-index-values: (
+        modal:1000 * 9,
+        mask:1000 * 8,
+        scroll:1000 * 7,
+        normal:1000 * 6,
+        line:1000 * 1
+)

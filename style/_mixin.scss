@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/*文字省略*/
+@mixin text-ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+}
+/*文字控制列数显示*/
+
+
+
+/* 盒布局，完全居中 */
+@mixin flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 清除浮动 */
+@mixin clear-fix{
+  content: '';
+  display: table;
+  clear: both;
+}

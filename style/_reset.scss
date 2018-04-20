@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+
+
+
+
+
+ul,ol,li{
+  list-style: none;
+}
+
+img{
+  border:none;
+  display: inline-block;
+}
+
+a{
+  cursor: pointer;
+  text-decoration: none;
+  background-color: transparent;
+  text-decoration-skip: objects;
+  &:active,&:hover{
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+/*统一字体重量*/
+b,strong {
+  font-weight: bolder;
+}
+
+input,textarea{
+  display: inline-block;
+}
+
+input[type="checkbox"],input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input[type="button"]{
+  white-space: normal;
+}
