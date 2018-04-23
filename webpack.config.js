@@ -96,6 +96,7 @@ module.exports = {
         extensions: [ '.js', '.json', '.scss'],
         alias: {
             'style': resolve(__dirname,'style/index'),
+            'jd': resolve(__dirname,'style/jd/index'),
             'apps': resolve(__dirname,'apps'),
         }
     },
