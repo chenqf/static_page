@@ -2,6 +2,7 @@
 
 @import "../../../style/function";
 @import "../../../style/variable";
+@import "../../../style/mixin";
 
 /*下载框*/
 .download-banner {
@@ -77,6 +78,7 @@
 
 /*搜索框*/
 .header-banner {
+  @include phone-width;
   position: fixed;
   z-index: 9;
   top: 0;
@@ -86,8 +88,6 @@
   margin: 0 auto;
   height: 40px;
   line-height: 40px;
-  max-width: 640px;
-  width: 100%;
   color: white;
   padding: 5px 44px 5px 10px;
   opacity: 0.9;

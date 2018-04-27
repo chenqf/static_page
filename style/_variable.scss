@@ -4,7 +4,7 @@ $base-map: (
         position:(static, fixed, absolute, relative),
         float:(left, right),
         text-align:(left, right, center, justify),
-        display:(block, inline, none, table, inline-block, inline-table)
+        display:(block, inline, table, flex,inline-block, inline-table,inline-flex,none)
 );
 
 $black:#333;

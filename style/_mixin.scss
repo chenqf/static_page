@@ -1,5 +1,12 @@
 @charset "utf-8";
 
+/*手机端宽度控制*/
+@mixin phone-width{
+  width: 100%;
+  max-width: 640px;
+  min-width: 320px;
+}
+
 /*文字省略*/
 @mixin text-ellipsis{
   overflow: hidden;
@@ -16,13 +23,18 @@
 }
 
 
-
-
 /* 盒布局，完全居中 */
 @mixin flex-center{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/*标准flex-box布局*/
+@mixin flex-container{
+  display: flex;
+  flex-flow:row wrap;
+  justify-content: space-between;
 }
 
 /* 清除浮动 */
