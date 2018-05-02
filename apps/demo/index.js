@@ -2,3 +2,8 @@
 
 import 'style'
 import './index.scss'
+
+
+window.document.getElementById('box1').onclick=function () {
+    console.log(222)
+}
