@@ -38,3 +38,17 @@
   }
 }
 
+.parent{
+  border:10px solid black;
+  width: 200px;
+  padding:10px;
+  height: 500px;
+  text-align: center;
+}
+.child{
+  width: 50%;
+  display: inline-block;
+  background-color: red;
+  height: 100px;
+}
+

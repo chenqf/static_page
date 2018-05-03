@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+
+@mixin back-icon{
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 20px;
+  width: 20px;
+  background: url(/image/jd/sprites.png) no-repeat -20px 0/200px 200px;
+}
+@mixin more-icon{
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 20px;
+  width: 20px;
+  background: url(/image/jd/mine/ellipsis.png) no-repeat center/20px;
+}

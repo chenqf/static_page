@@ -1,10 +1,5 @@
 @charset "utf-8";
 
-
-
-
-
-
 ul,ol,li{
   list-style: none;
 }
@@ -25,11 +20,6 @@ a{
   }
 }
 
-/*统一字体重量*/
-b,strong {
-  font-weight: bolder;
-}
-
 input,textarea{
   display: inline-block;
 }
@@ -41,4 +31,66 @@ input[type="checkbox"],input[type="radio"] {
 
 input[type="button"]{
   white-space: normal;
+}
+
+
+a, div, header, span {
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+
+a{
+  color:inherit;//cqf 把超链接的颜色设定为页面中其他文本相同
+}
+
+
+*{
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  //outline: 0; cqf 不建议如此使用
+}
+
+article,aside,footer,header,nav,section,figcaption,figure,main{
+  display: block;
+}
+blockquote, body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, hr, input, legend, li, ol, p, pre, td, textarea, th, ul {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+pre,code{
+  font-family:monospace;
+}
+pre{
+  display: block;
+  margin:1em 0;
+  white-space: pre;
+  tab-size: 2;//cqf 设置tab的缩进尺寸（2个字符）
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  //font: inherit;
+  vertical-align: baseline;
+}
+
+html,body{
+  padding:0;
+  margin:0;
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system,BlinkMacSystemFont,Helvetica,sans-serif;
+  color:#333;
+  -webkit-overflow-scrolling: touch;
+}
+html{
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  overflow: auto; //cqf 滚动条设置在html上
+}
+body{
+  font-size: 14px;
+  //line-height: 1.4;
 }

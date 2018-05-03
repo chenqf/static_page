@@ -27,6 +27,7 @@
   border-bottom: 1px solid $line-grey;
   line-height: 44px;
   font-size: 0;
+  position: relative;
   .mine-header-back {
     position: absolute;
     height: 44px;
@@ -38,7 +39,7 @@
       vertical-align: middle;
       height: 20px;
       width: 20px;
-      background: url("/image/jd/mine/sprites.png") no-repeat -20px 0/200px 200px;
+      background: url("/image/jd/sprites.png") no-repeat -20px 0/200px 200px;
     }
   }
   .mine-header-title {
