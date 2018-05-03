@@ -1,0 +1,64 @@
+[
+  {
+    "key": "CCB",
+    "name": "中国建设银行"
+  },
+  {
+    "key": "ABC",
+    "name": "中国农业银行"
+  },
+  {
+    "key": "ICBC",
+    "name": "中国工商银行"
+  },
+  {
+    "key": "BOC",
+    "name": "中国银行"
+  },
+  {
+    "key": "CMBC",
+    "name": "中国民生银行"
+  },
+  {
+    "key": "CMB",
+    "name": "招商银行"
+  },
+  {
+    "key": "CIB",
+    "name": "兴业银行"
+  },
+  {
+    "key": "BCM",
+    "name": "交通银行"
+  },
+  {
+    "key": "CEB",
+    "name": "中国光大银行"
+  },
+  {
+    "key": "GDB",
+    "name": "广东发展银行"
+  },
+  {
+    "key": "CDB",
+    "name": "国家开发银行"
+  },
+  {
+    "key": "HSBC",
+    "name": "汇丰银行"
+  },
+  {
+    "key": "CITIC",
+    "name": "中信银行"
+  },
+  {
+    "key": "SPDB",
+    "name": "上海浦东发展银行"
+  },
+  {
+    "key": "BOB",
+    "name": "北京银行"
+  }
+]
+
+//https://storage.360buyimg.com/payment-assets/sdk/bank/DSB.png
