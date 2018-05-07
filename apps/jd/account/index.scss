@@ -3,8 +3,140 @@
 @import "../../../style/function";
 @import "../../../style/variable";
 @import "../../../style/mixin";
+@import "../../../style/jd/mixin";
 
 
-input{
-  text-transform: uppercase;
+$header-height:44px;
+
+/*头部*/
+.account-header{
+  background-color: white;
+  height: $header-height;
+  line-height: $header-height;
+  &__back{
+    height: $header-height;
+    width: 40px;
+    float:left;
+    text-align: center;
+    &:before{
+      @include back-icon;
+    }
+  }
+  &__more{
+    height: $header-height;
+    width: 40px;
+    float:right;
+    text-align: center;
+    &:before{
+      @include more-icon;
+    }
+  }
+  &__title{
+    font-size: 16px;
+    display: block;
+    text-align: center;
+  }
 }
+
+/*当前登录账号*/
+.account-current{
+  background-color: white;
+  &__title{
+    margin:0 10px;
+    position: relative;
+    font-size: 14px;
+    line-height: 44px;
+    font-weight: normal;
+    &:after{
+      @include pseudo-line;
+    }
+  }
+}
+
+/*当前账号信息*/
+.account-card{
+  background-color: white;
+  padding:10px;
+  display: flex;
+  &__img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    img{
+      width: 100%;
+      border-radius: 100%;
+    }
+  }
+  &__info{
+    padding-left:10px;
+    padding-top:4px;
+    flex:1;
+    min-width: 0;
+  }
+  &__username{
+    @include text-ellipsis;
+  }
+  &__email{
+    margin-top:5px;
+    color: $grey-light;
+  }
+}
+
+/*操作列表*/
+.account-list{
+  background-color: white;
+  color: $grey-light;
+  line-height: 44px;
+  position: relative;
+  &:after{
+    @include pseudo-line(bottom);
+    left:10px;
+  }
+  &__item{
+    margin-left:10px;
+    position: relative;
+    &:before{
+      @include pseudo-line(top)
+    }
+    &:after{
+      @include pseudo-arrow(right);
+      right: 20px;
+    }
+  }
+}
+
+/*底部导航按钮*/
+.account-footer{
+  display: flex;
+  margin-top:10px;
+  &__item{
+    flex:1;
+    margin-left:10px;
+    background-color: white;
+    text-align: center;
+
+    padding:6px 0;
+    img{
+      width: 18px;
+      height: 18px;
+      padding-right:3px;
+      vertical-align: middle;
+    }
+    span{
+      font-size: 12px;
+      vertical-align: middle;
+    }
+    &--right{
+      @extend .account-footer__item;
+      margin-right:10px;
+    }
+  }
+}
+
+/*底部logo*/
+.account-footer-logo{
+  text-align: center;
+  margin:25px 0;
+}
+

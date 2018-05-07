@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+@import "variable";
+
 @mixin margin-h-center{
   margin-left:auto;
   margin-right:auto;
@@ -42,6 +44,74 @@
   -webkit-line-clamp: $line;
   -webkit-box-orient: vertical;
 }
+
+/*通过伪类实现边线*/
+@mixin pseudo-line($position:bottom){
+  content:'';
+  background-color:$line-light;
+  position: absolute;
+  z-index: map_get($z-index-values,line);
+  pointer-events: none;
+  @if($position == top){
+    left:0;right:0;top:0;
+    height: 1px;
+  }
+  @else if($position == right){
+    right:0;top:0;bottom:0;
+    width: 1px;
+  }
+  @else if($position == bottom){
+    left:0;right:0;bottom:0;
+    height: 1px;
+  }
+  @else if($position == left){
+    left:0;top:0;bottom:0;
+    width: 1px;
+  }
+}
+
+
+/*箭头*/
+@mixin arrow($position:right,$length:10px,$color:$grey){
+  width:$length ;
+  height:$length ;
+  border-top: 1px solid $color;
+  border-left: 1px solid $color;
+  @if($position == top){
+    transform: rotate(45deg);
+  }
+  @else if($position == right){
+    transform: rotate(135deg);
+  }
+  @else if($position == bottom){
+    transform: rotate(225deg);
+  }
+  @else if($position == left){
+    transform: rotate(315deg);
+  }
+}
+
+/*通过伪类实现箭头*/
+@mixin pseudo-arrow($position:right,$length:10px,$color:$grey){
+  content: '';
+  @include arrow($position,$length,$color);
+  position: absolute;
+  top:50%;
+  @if($position == top){
+    transform: translate(0,-50%) rotate(45deg);
+  }
+  @else if($position == right){
+    transform: translate(0,-50%) rotate(135deg);
+  }
+  @else if($position == bottom){
+    transform: translate(0,-50%) rotate(225deg);
+  }
+  @else if($position == left){
+    transform: translate(0,-50%) rotate(315deg);
+  }
+}
+
+
 
 
 /* 盒布局，完全居中 */

@@ -7,15 +7,21 @@ $base-map: (
         display:(block, inline, table, flex,inline-block, inline-table,inline-flex,none)
 );
 
+/*用于文字*/
 $black:#333;
 $golden:#cead68;
 $red: #de181b;
-
-
 $grey: #666;
+$grey-light: #999;
+
+
+/*用于背景*/
 $bg-grey: #f3f5f7;
-$line-light: #e6e6e6;
+/*用于边线*/
+$line-light: #e5e5e5;
 $line-grey: #bfbfbe;
+
+
 
 $z-index-values: (
         modal:1000 * 9,
