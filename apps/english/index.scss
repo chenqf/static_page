@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+@import "../../style/mixin";
+@import "../../style/variable";
+
+.word-search{
+  margin:20px;
+  &__input{
+    outline: 0;
+    height: 28px;
+    border-radius: 14px;
+    border:1px solid $line-grey;
+    padding:0 20px;
+  }
+  &__button{
+    padding:0 10px;
+    border-radius: 10px;
+    height: 28px;
+    margin-left:10px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background-color: #1890ff;
+    outline: 0;
+    color: white;
+    &:hover{
+      background-color: #1890ff;
+    }
+    &:active{
+      background-color: #096dd9;
+    }
+  }
+}
+
+.word-list{
+  &__item{
+    @include flex-container;
+    align-items: center;
+    position: relative;
+    padding:3px 5px 3px 10px;
+    min-height: 55px;
+    &:first-child:before{
+      @include pseudo-line(top);
+    }
+    &:after{
+      @include pseudo-line(bottom);
+    }
+    &:nth-of-type(odd){
+      background-color: rgba(216,216,216,0.1);
+    }
+  }
+  &__word{
+    display: inline-block;
+    width: 100px;
+  }
+  &__phonetic{
+    display: inline-block;
+    width: 100px;
+  }
+  &__explains{
+    display: inline-block;
+    flex: 1;
+  }
+}

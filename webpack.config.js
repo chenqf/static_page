@@ -33,13 +33,14 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
-                use: ['babel-loader'],
-                exclude: /node_modules/
-            },
-            {
-                test: /\.json/,
-                loader: 'json-loader'
+                test: /(\.jsx|\.js)$/,
+                use: {
+                    loader: 'babel-loader',
+                    options:{
+                        "presets":["react",'es2015']
+                    }
+                },
+                exclude: /node_modules/,
             },
             {
                 test: /\.scss$/,
@@ -93,11 +94,11 @@ module.exports = {
     },
     resolve: {
         // root: __dirname, //绝对路径
-        extensions: [ '.js', '.json', '.scss'],
+        extensions: [ '.js', 'jsx','.json', '.scss'],
         alias: {
             'style': resolve(__dirname,'style/index'),
             'jd': resolve(__dirname,'style/jd/index'),
-            'apps': resolve(__dirname,'apps'),
+            'apps': resolve(__dirname,'apps')
         }
     },
 };
