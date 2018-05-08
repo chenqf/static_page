@@ -9,7 +9,15 @@ import './index.scss'
 class List extends React.Component{
     constructor(props) {
         super(props);
-        this.state = {list:data.reverse()};
+        this.state = {
+            list:data.reverse(),
+            open:false
+        };
+    }
+    openOrCloseExplains(){
+        this.setState({
+            open:!this.state.open
+        })
     }
     listenEvent(query){
         let audio = document.getElementById(query);
@@ -27,16 +35,23 @@ class List extends React.Component{
                                     <p className="word-list__word">{i.query}</p>
                                     <p className="word-list__phonetic">[{i.phonetic}]</p>
                                 </span>
-                                <span className="word-list__explains">{
-                                    i.explains.map((j)=>{
-                                        return <p key={j}>{j}</p>
-                                    })
-                                }</span>
+                                <span className="word-list__explains" style={{ filter: `blur(${this.state.open ? 0 : 2}px)`}}>
+                                    {
+                                        i.explains.map((j)=>{
+                                            return <p key={j}>{j}</p>
+                                        })
+                                    }
+                                </span>
                             </li>
                         )
                     })
                 }
+                <span className="word-list__button" onClick={this.openOrCloseExplains.bind(this)}>
+                    {
+                        this.state.open ? '关闭翻译':'开启翻译'
+                    }
 
+                </span>
             </ul>
         )
     }

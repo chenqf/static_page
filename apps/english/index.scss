@@ -7,11 +7,13 @@
 body{
   border-left:1px solid $line-light;
   border-right:1px solid $line-light;
+  position: relative;
 }
 
 .word-search{
   padding:20px;
   &__input{
+    width: px2Rem(200);
     outline: 0;
     height: 28px;
     border-radius: 14px;
@@ -19,6 +21,7 @@ body{
     padding:0 20px;
   }
   &__button{
+    cursor: pointer;
     padding:0 10px;
     border-radius: 10px;
     height: 28px;
@@ -28,7 +31,7 @@ body{
     outline: 0;
     color: white;
     &:hover{
-      background-color: $bg-blue-light;
+      background-color: rgba($bg-blue,.8);
     }
     &:active{
       background-color: $bg-blue;
@@ -69,7 +72,30 @@ body{
 
   }
   &__explains{
+    //transition: filter .5s;
     display: inline-block;
     flex: 1;
+  }
+
+  &__button{
+    cursor: pointer;
+    position: absolute;
+    top:20px;
+    right: 10px;
+    padding:0 10px;
+    border-radius: 10px;
+    height: 28px;
+    line-height: 28px;
+    margin-left:10px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background-color: rgba($bg-blue,.8);
+    outline: 0;
+    color: white;
+    &:hover{
+      background-color: rgba($bg-blue,.8);
+    }
+    &:active{
+      background-color: $bg-blue;
+    }
   }
 }
