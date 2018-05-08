@@ -12,7 +12,8 @@ class List extends React.Component{
         this.state = {list:data.reverse()};
     }
     listenEvent(query){
-        console.log(query)
+        let audio = document.getElementById(query);
+        audio.play();
     }
     render(){
         return (
@@ -21,8 +22,11 @@ class List extends React.Component{
                     this.state.list.map((i)=>{
                         return (
                             <li key={i.query} className="word-list__item" onClick={this.listenEvent.bind(this,i.query)}>
-                                <span className="word-list__word">{i.query}</span>
-                                <span className="word-list__phonetic">[{i.phonetic}]</span>
+                                <audio src={i.mp3} id={i.query}/>
+                                <span className="word-list__content">
+                                    <p className="word-list__word">{i.query}</p>
+                                    <p className="word-list__phonetic">[{i.phonetic}]</p>
+                                </span>
                                 <span className="word-list__explains">{
                                     i.explains.map((j)=>{
                                         return <p key={j}>{j}</p>

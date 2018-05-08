@@ -1,5 +1,7 @@
 // @flow Created by 陈其丰 on 2018/5/7.
 const http = require('http');
+const path = require('path');
+const request = require('request');
 const {translate} = require('./tools/translate/index');
 const URL = require('url');
 
