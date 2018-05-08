@@ -3,3 +3,187 @@
 @import "../../../style/function";
 @import "../../../style/variable";
 @import "../../../style/mixin";
+@import "../../../style/jd/mixin";
+
+
+$header-height:44px;
+
+/*头部*/
+.seckill-header{
+  background-color: white;
+  height: $header-height;
+  line-height: $header-height;
+  border-bottom:1px solid $line-light;
+  &__back{
+    height: $header-height;
+    width: 40px;
+    float:left;
+    text-align: center;
+    &:before{
+      @include back-icon;
+    }
+  }
+  &__more{
+    height: $header-height;
+    width: 40px;
+    float:right;
+    text-align: center;
+    &:before{
+      @include more-icon;
+    }
+  }
+  &__title{
+    font-size: 16px;
+    display: block;
+    text-align: center;
+  }
+}
+
+/*tabBar*/
+.seckill-time-tab{
+  background-color: white;
+  text-align: center;
+  color: $black;
+  padding:8px 0;
+  overflow: hidden;
+  &__item{
+    float: left;
+    @include width-percent(5);
+    &>p:nth-of-type(1){
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 24px;
+    }
+    &--active{
+      @extend .seckill-time-tab__item;
+      color: $red;
+      &>p:nth-of-type(1){
+        font-size: 23px;
+      }
+    }
+  }
+}
+
+/*秒杀内容*/
+.seckill-content{
+  background-color: white;
+  line-height: 28px;
+  &__header{
+    padding:0 10px;
+    border-bottom: 1px solid $line-light;
+  }
+  &__title{
+    color: $red;
+  }
+  &__time {
+    float: right;
+    color: $black;
+  }
+  &__time-number{
+    background-color: $black;
+    color: white;
+    display: inline-block;
+    line-height: 16px;
+    border-radius: 3px;
+  }
+  &__time-separator{
+    display: inline-block;
+    width: 6px;
+    height: 16px;
+    line-height: 16px;
+    vertical-align: middle;
+    background: url("https://st.360buyimg.com/coupon/seckill/images/separator.time.png") no-repeat 0 0/6px 16px;
+  }
+}
+
+/*秒杀列表*/
+.seckill-list{
+  padding:0 10px;
+  color: $black;
+  &__item{
+    position: relative;
+    padding:15px 0;
+    overflow: hidden;
+    &:after{
+      @include pseudo-line(bottom);
+    }
+  }
+  &__pic{
+    float: left;
+    width: 102px;
+    height: 102px;
+    margin-right: 5px;
+    img{
+      max-width: 100%;
+      max-height: 100%;
+      width: 102px;
+      height: 102px;
+    }
+  }
+  &__dec{
+    height: 32px;
+    line-height: 16px;
+    @include line-ellipsis(2);
+  }
+  &__ope1{
+    margin-top:20px;
+    line-height: 28px
+  }
+  &__ope2{
+    line-height: 1;
+    font-size: 12px;
+    color:$grey-light;
+    margin-top:4px;
+  }
+  &__price{
+    color: $red;
+    font-size: 12px;
+    display: inline-block;
+    &::first-letter{
+      font-size: 11px;
+    }
+    & > span:first-child{
+      font-size: 20px;
+    }
+  }
+  &__btn{
+    float: right;
+    display: inline-block;
+    min-width: 70px;
+    height: 28px;
+    font-size: 14px;
+    line-height: 28px;
+    color: white;
+    background-color: $red;
+    border-radius: 2px;
+    text-align: center;
+    &--empty{
+      @extend .seckill-list__btn;
+      border: 1px solid rgba($red,.4);
+      background-color: transparent;
+      color: rgba($red,.8);
+    }
+  }
+  &__original-price{
+  }
+  &__count{
+    display: inline-block;
+    float: right;
+  }
+  &__progress{
+    display: inline-block;
+    width: 70px;
+    height: 8px;
+    overflow: hidden;
+    border: 1px solid rgba($red,.6);
+    margin-left: 3px;
+    border-radius: 3px;
+    & > span{
+      background-color: rgba($red,.6);
+      display: inline-block;
+      max-width: 100%;
+      height: 8px;
+      vertical-align: top;
+    }
+  }
+}
