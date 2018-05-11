@@ -42,6 +42,7 @@ body{
 .word-list{
   &__item{
     @include flex-container;
+    cursor: pointer;
     align-items: center;
     position: relative;
     padding:8px;

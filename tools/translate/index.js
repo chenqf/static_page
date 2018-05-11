@@ -65,6 +65,7 @@ exports.translate = function (q) {
     return Promise.all([p1,p2]).then(function ([d1,d2]) {
         if(!list.filter((i)=>i.query === d1.query)[0]){
             d1.mp3 = d2;
+            d1.timestamp = Date.now();
             list.push(d1);
             let str = JSON.stringify(list);
             fs.writeFileSync(`${__dirname}/list.json`, str);
