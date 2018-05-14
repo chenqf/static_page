@@ -12,6 +12,18 @@
 
 </head>
 <body>
+<button>0</button>
+<link href="//10.13.1.93:8003/one.css" rel="stylesheet">
+    <script>
+        var time = Date.now();
+        console.log('start-------------------------',Date.now())
+        while (time + 8000 > Date.now()){
+            if(Date.now() - time === 500){
+                console.log('阻塞')
+            }
+        }
+        console.log('end-------------------------',Date.now())
+    </script>
     <div>
         <button>1</button>
         <button>1</button>
@@ -30,7 +42,7 @@
     <script src="//10.13.1.93:8001/one.js"></script>
     <script src="//10.13.1.93:8002/two.js"></script>
 
-    <link href="//10.13.1.93:8003/one.css" rel="stylesheet">
+
     <button>3</button>
     <button>4</button>
 
