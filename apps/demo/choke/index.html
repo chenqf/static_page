@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证css、js阻塞</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <!---->
+
+</head>
+<body>
+    <div>
+        <button>1</button>
+        <button>1</button>
+        <button>1</button>
+        <button>1</button>
+        <button>1</button>
+        <button>1</button>
+        <button>1</button>
+        <button>1</button>
+        <button>1</button>
+        <button>1</button>
+        <button>1</button>
+    </div>
+
+    <button>2</button>
+    <script src="//10.13.1.93:8001/one.js"></script>
+    <script src="//10.13.1.93:8002/two.js"></script>
+
+    <link href="//10.13.1.93:8003/one.css" rel="stylesheet">
+    <button>3</button>
+    <button>4</button>
+
+
+    <img src="//10.13.1.93:8004/img.png">
+
+    <div>
+        <button>22222</button>
+    </div>
+
+</body>
+</html>

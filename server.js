@@ -16,3 +16,25 @@ http.createServer(function (request, response) {
     })
 
 }).listen(8888);
+
+
+
+http.createServer(function (request, response) {
+    response.writeHead(200, {'Content-Type': 'application/json'});
+    response.end('{"success":true}');
+}).listen(8001);
+
+http.createServer(function (request, response) {
+    response.writeHead(200, {'Content-Type': 'application/json'});
+    response.end('{"success":true}');
+
+}).listen(8002);
+http.createServer(function (request, response) {
+    response.writeHead(200, {'Content-Type': 'application/json'});
+    response.end('{"success":true}');
+}).listen(8003);
+http.createServer(function (request, response) {
+    response.writeHead(200, {'Content-Type': 'application/json'});
+    response.end('{"success":true}');
+
+}).listen(8004);
