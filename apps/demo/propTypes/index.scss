@@ -1,0 +1,32 @@
+
+
+.box{
+  border: 1px solid #b6b6b6;
+  margin:10px;
+  .title{
+    text-align: center;
+    font-size: 16px;
+    line-height: 2;
+    color:white;
+    background-color: #1685d9;
+    border-bottom: 1px solid #b6b6b6;
+  }
+  .item{
+    padding:10px 5px;
+    display: flex;
+    &:nth-of-type(odd){
+      background-color: rgba(grey,.2);
+    }
+    span:first-child{
+      width: 140px;
+      display: inline-block;
+      text-align: right;
+      font-weight: 700;
+    }
+    span:last-child{
+      flex: 1;
+      min-width: 0;
+      line-height: 1.5;
+    }
+  }
+}
