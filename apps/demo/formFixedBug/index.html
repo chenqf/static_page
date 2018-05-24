@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>ios 下底部输入框弹出键盘被遮挡问题</title>
+    <script>
+        window.addEventListener('resize', function() {
+            document.write(document.activeElement.tagName);
+            if(
+                document.activeElement.tagName === 'INPUT' ||
+                document.activeElement.tagName === 'TEXTAREA'
+            ) {
+                window.setTimeout(function() {
+                    if('scrollIntoView' in document.activeElement) {
+
+                        document.activeElement.scrollIntoView();
+                        document.write(1);
+                    } else {
+
+                        document.activeElement.scrollIntoViewIfNeeded();
+                        document.write(2);
+                    }
+                }, 0);
+            }
+        });
+    </script>
+</head>
+<body>
+
+<div id="root">
+
+</div>
+
+</body>
+</html>

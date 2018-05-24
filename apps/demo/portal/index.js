@@ -25,6 +25,13 @@ function C2(props){
     );
 }
 
+aaa.forEach((i,index)=>{
+
+});
+
+
+ife
+
 
 ReactDOM.render(
     <C/>
