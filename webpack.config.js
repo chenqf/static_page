@@ -37,7 +37,14 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options:{
-                        "presets":["react",'es2015']
+                        "presets":[
+                            "react",
+                            'es2015',
+                        ],
+                        "plugins": [
+                            "transform-object-assign",//Object.assign
+                            'transform-object-rest-spread',// ... 运算符
+                        ]
                     }
                 },
                 exclude: /node_modules/,
