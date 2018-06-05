@@ -1,6 +1,4 @@
 
-console.log(070 === 56);
-
 // function Test(a,b,c){
 //     this.a = a;
 //     this.b = b;
