@@ -1,54 +1,41 @@
+import React,{Component} from 'react';
+import ReactDOM from 'react-dom';
 
-// function Test(a,b,c){
-//     this.a = a;
-//     this.b = b;
-//     this.c = c;
-// }
-//
-// Test.prototype.name = 'test bind';
-//
-// Test.prototype.log = function () {
-//     console.log(this.constructor === Test); // true
-//     console.log(this.name); // test bind
-//     console.log(this.a,this.b,this.c); // 1 2 3
-// }
-//
-// const Demo = Test.bind(null,1,2);
-//
-// let ins = new Demo(3);
-// ins.log();
-// console.log(Demo.length); // 1
-
-
-let n = new Number(100);
-console.log(n instanceof Number);    //true
-
-let num = 10;
-console.log(num instanceof Number);  //false
-
-
-function test() {
-    eval('var a = 1;');
-    console.log(typeof a); // 正常模式： number
+class Test extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            list:[50,20,30,40,90,80,12,15,29],
+            bgColor:'grey',
+            currentColor:'red',
+            height:40,
+            margin:5,
+        };
+    }
+    render(){
+        return (
+            <div>
+                {
+                    this.state.list.map((i)=>{
+                        return (
+                                <div style={{margin:this.state.margin,height:this.state.height,background:this.state.bgColor}}>
+                                    <div style={{height:'100%',width:`${i}%`,background:this.state.currentColor}}/>
+                                </div>
+                            )
+                    })
+                }
+            </div>
+        )
+    }
 }
 
-function test() {
-    "use strict";
-    eval('var a = 1;');
-    console.log(typeof a); // 严格模式： undefined
-}
 
-function test() {
-    "use strict";
-    return (function () {
-        return this !== undefined;
-    })();
-}
 
-(function () {
-    return this === undefined; // 严格模式：true  正常模式：false
-})();
-
+ReactDOM.render(
+    <Test/>
+    ,
+    document.getElementById('root')
+);
 
 
 
