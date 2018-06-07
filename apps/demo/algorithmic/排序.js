@@ -1,10 +1,14 @@
 // @flow Created by 陈其丰 on 2018/6/4.
 
 
-
+//用于比较的数组
 const list = Array.from({length:10000}).map(i => Math.floor(Math.random() * 10000) + Math.floor(Math.random() * 1000000));
 
-
+/**
+ * 快速排序
+ * @param list
+ * @returns {*}
+ */
 function quickSort(list) {
     // 1. 基线条件：数组为空，或数组只有一个元素
     if(list.length <= 1){
