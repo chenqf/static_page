@@ -46,3 +46,4 @@ if(!Number.isSafeInteger){
 Number.isNegZero = function (number) {
     return number === 0 && (1/number) === -Infinity;
 };
+
