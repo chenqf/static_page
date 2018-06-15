@@ -1,160 +1,116 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-class Test extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            list:[50,20,30,40,90,80,12,15,29],
-            bgColor:'grey',
-            currentColor:'red',
-            height:40,
-            margin:5,
-        };
+
+(async () => {
+
+    const sleep = delay => {
+        return new Promise((resolve, reject) => {
+            setTimeout(_ => resolve(), delay)
+        })
     }
-    render(){
-        return (
-            <div>
-                {
-                    this.state.list.map((i)=>{
-                        return (
-                                <div style={{margin:this.state.margin,height:this.state.height,background:this.state.bgColor}}>
-                                    <div style={{height:'100%',width:`${i}%`,background:this.state.currentColor}}/>
-                                </div>
-                            )
-                    })
-                }
-            </div>
-        )
-    }
-}
 
-
-
-ReactDOM.render(
-    <Test/>
-    ,
-    document.getElementById('root')
-);
-
-
-
-demo();// TypeError 找到变量，但不是函数
-test();// ReferenceError 左侧查询没有找到
-var demo = function test() {
-
-};
-
-const Module = (function () {
-    let modules = {};
-    return {
-        define:function (name,deps = [],callback) {
-            let depModules = deps.reduce((result,name)=>{
-                return result.concat(modules[name])
-            },[]);
-            modules[name] = callback.apply(null,depModules)
+    const task = (i) => {
+        if(i === 3){
+            console.log('==============')
         }
+        return new Promise(async (resolve, reject) => {
+            await sleep(500)
+            console.log(`now is ${i}`)
+            ++i
+            resolve(i)
+        })
     }
-})();
 
-Module.define('a',[],function(){return 'nihao'});
+    +[0, 1, 2, 3].forEach(async num => await task(num))
+    // for (let i = 0; i < 4; i++) {
+    //     await task(i)
+    // }
+})()
 
-Module.define('b',[],function(){return 'shijie'});
 
-Module.define('c',[],function(){return '!'});
-
-Module.define('current',['a','b','c'],function (a,b,c) {
-    console.log(a,b,c)  // nihao shijie !
-});
-
-{
-    let a = 2;
-    console.log(a);
+function P() { }
+P.prototype.demo = 1;
+function C() {
+    P.apply(this,arguments);//用作调用父类构造方法
 }
 
-try{
-    throw 2;
-}catch(a){
-    console.log(a);
-}
+Object.setPrototypeOf(C.prototype,P.prototype);
 
+var c = new C();
+c.test = 2;
 
+function isRealtedTo(b,a) {
+    function F() {
 
-
-window.name = 'window name';
-const obj = {
-    name:'obj name',
-    fn:function () {
-        console.log(this.name);
     }
+    F.prototype = a;
+    return b instanceof F
+}
+var a = {};
+var b = Object.create(a);
+
+isRealtedTo(b,a)
+
+
+Object.create = function (proto,obj = {}) {
+    function F() {}
+    F.prototype = proto;
+    let ins = new F();
+    Object.defineProperties(ins,obj);
+    return ins;
 };
-let fn1 = obj.fn;
-let fn2 = obj.fn.bind(obj);
-fn1(); // window name 作为函数调用，this指向 window
-fn2(); // window obj 通过bind绑定，作为函数调用，依然使用绑定的this
 
-
-function demo() {
-    console.log('demo',this)
-    test();
+class PP{
+    constructor(){
+        console.log('super constructor');
+    }
+    test(){
+        console.log('super test')
+    }
 }
+
+class P{
+    poo(){
+        console.log('P.foo');
+    }
+    coo(){
+        console.log('P.coo')
+    }
+}
+
+class C extends P{
+    poo(){
+        console.log('C.foo');
+    }
+    coo(){
+        console.log('C.coo')
+    }
+}
+class S extends C{
+    soo(){
+        super.coo();
+        super.poo();
+    }
+
+}
+
+[].join()
+
+let str = '123456';
+str[0] = 0;
+console.log(str); // 123456
+
+1.toFixed(2);// Error 会将 1. 当做数字
+1 .toFixed(2);
+1..toFixed(2);
+1.1.toFixed(2);
+
 function test() {
-    console.log('test',this)
-}
-
-
-const obj = (function () {
-    return {
-        name:'crh',
-        fn1:function (){
-            console.log(this.name)
-        },
-        fn2:()=>{
-            console.log(this.name) // cqf 箭头函数的this 取决于创建函数时的this
-        }
-    }
-}).call({name:'cqf'});
-
-window.name = 'cqf';
-function fn() {
-    console.log(this.name); // cqf
-}
-(function () {
     "use strict";
-    fn(); // cqf 虽然此函数为严格模式，但fn函数为非严格模式
-})();
-
-
-function fn() {
-    console.log(this.name);
+    console.log(0o363)
 }
-let obj2 = {
-    name:'cqf',
-    fn:fn
-};
-let obj1 = {
-    name:'crh',
-    obj2:obj2
-};
-obj1.obj2.fn(); // cqf 函数引用调用，取决于最后一层引用
 
-window.name = 'window cqf';
-function demo() {
-    return {
-        name:'crh',
-        fn:()=>{
-            console.log(this.name);
-        }
-    }
-}
-let obj = {
-    name:'obj cqf',
-    demo:demo
-};
-let fn = obj.demo().fn;
-obj.demo().fn(); // obj cqf
-demo().fn();    // window cqf
-fn();           // obj cqf
 
 
 
